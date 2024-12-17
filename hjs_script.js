@@ -1,47 +1,28 @@
-let namePerson = prompt("Назовись странник:");
+"use strict";
+const namePerson = prompt("Назовись странник:");
 namePerson === "Артем"
   ? console.log("директор")
   : namePerson === "Александр"
   ? console.log("преподаватель")
   : console.log("студент");
 
-days = [
-  [
-    "Понедельник",
-    "Вторник",
-    "Среда",
-    "Четверг",
-    "Пятница",
-    "Суббота",
-    "Воскресенье",
-  ],
-  [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-  ],
-];
+const map = new Map();
 
-let lang = prompt("На каком языке вывести дни недели?", " только ru или en");
+map.set("en", "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday");
+map.set(
+  "ru",
+  "Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье"
+);
 
-if (lang !== "en") {
-  lang = "ru";
-}
-console.log("Установленный язык: ", lang);
+const lang = prompt("На каком языке вывести дни недели?", "только en или ru");
 
-for (let i = 0; i < 7; i++) {
-  switch (lang) {
-    case "ru":
-      console.log(days[0][i]);
-      break;
-    case "en":
-      console.log(days[1][i]);
-      break; //остановка работы блока
-    default:
-      console.log("other");
-  }
+switch (lang) {
+  case "en":
+    console.log("Установленный язык: ", lang);
+    console.log(map.get("en"));
+    break; //остановка работы блока
+  default:
+    //типа если не выбрано en всегда будет ru
+    console.log("Установленный язык: ru");
+    console.log(map.get("ru"));
 }
