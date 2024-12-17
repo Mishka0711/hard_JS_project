@@ -18,7 +18,7 @@ const lang = prompt("На каком языке вывести дни недел
 
 switch (lang) {
   case "en":
-    console.log("Установленный язык: ", lang);
+    console.log("Установленный язык: en");
     console.log(map.get("en"));
     break; //остановка работы блока
   default:
